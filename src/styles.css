@@ -46,19 +46,41 @@ button {
   color: inherit;
 }
 
+.view-container {
+    transition: opacity 100ms ease-in-out, filter 100ms ease-in-out, transform 100ms ease-in-out;
+}
+
+.view-visible {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+}
+
+.view-hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(10px);
+}
+
 .app-shell {
   position: relative;
   min-height: 100vh;
   overflow: clip;
   background:
-    linear-gradient(120deg, #100810 0%, #180c18 100%);
+    linear-gradient(10deg, #100810 0%, #180c18 100%);
 }
 
 .app-background {
   position: absolute;
-  inset: 0;
-  filter: blur(3px);
+  inset: -40px;
   pointer-events: none;
+
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 10px 10px;
+
+  filter: blur(0px);
+
+  transition: transform 0.15s ease-out;
 }
 
 .app-main {
@@ -66,6 +88,20 @@ button {
   z-index: 1;
   min-height: 100vh;
   padding: clamp(1rem, 2vw, 1.75rem);
+
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0px);
+    }
 }
 
 .home-view,
@@ -96,7 +132,7 @@ button {
   padding: 1.25rem 1rem;
   border: 3px solid var(--border-strong);
   border-radius: 10px;
-  background: rgba(24, 16, 24, 0.92);
+  background: rgba(255, 255, 255, 0.02);
   box-shadow: var(--shadow);
   transition:
     transform 160ms ease,
@@ -194,6 +230,7 @@ button {
 
 .back-button:hover {
   transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.08);
 
   cursor: pointer;
 }
@@ -230,8 +267,9 @@ button {
   user-select: none;
 }
 
-.home-title {
-    transform: scale(1.25);
+#home-title {
+    transform: scale(1.5);
+    text-shadow: 0px 0px 10px rgba(255,255,255,0.4);
 }
 
 .about-layout {

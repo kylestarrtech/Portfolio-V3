@@ -75,6 +75,8 @@ function App() {
   const [selectedProjectId, setSelectedProjectId] = useState(projects[0].id);
   const selectedProject = projects.find((project) => project.id === selectedProjectId) ?? projects[0];
 
+  const bgRef = useRef(null);
+
   function openProjectDetail(projectId) {
     setSelectedProjectId(projectId);
     switchView('project-detail');
@@ -132,6 +134,26 @@ function App() {
     }
   }, [renderedView]);
 
+  useEffect(() => {
+    function handleMouseMove(event) {
+        if (!bgRef.current) { return; }
+
+        const x = (event.clientX / window.innerWidth - 0.5) * 2;
+        const y = (event.clientY / window.innerHeight - 0.5) * 2;
+
+        const shiftX = x * 10;
+        const shiftY = y * 10;
+
+        bgRef.current.style.transform = `translate(${shiftX}px, ${shiftY}px)`;
+    }
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+
+    return () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
   const homeActions = useMemo(
     () => [
       { label: 'About Me', icon: aboutIcon, onClick: () => switchView('about') },
@@ -161,10 +183,10 @@ function App() {
 
   return (
     <div className="app-shell">
-      <div className="app-background" aria-hidden="true" />
+      <div className="app-background" ref={bgRef}aria-hidden="true" />
       <main className="app-main">
         <section
-          className={`panel ${renderedView === 'home' ? 'home-view' : 'panel-view'} ${isExiting ? 'exiting' : ''} ${isEntering ? 'entering' : ''}`.trim()}
+          className={`view-container ${activeView === renderedView ? 'view-visible' : 'view-hidden'} ${renderedView === 'home' ? 'home-view' : 'panel-view'} ${isExiting ? 'exiting' : ''} ${isEntering ? 'entering' : ''}`.trim()}
           aria-labelledby={renderedView === 'home' ? 'home-title' : renderedView === 'about' ? 'about-title' : 'projects-title'}
         >
           {renderedView === 'home' && (
