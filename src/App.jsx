@@ -51,7 +51,7 @@ const projects = [
     description:
         'A modern, responsive, and accessible portfolio website built with React and Vite with a focus on being easy-to-navigate, accessible for all, and visually appealing.',
     tags: ['React', 'Vite', 'JavaScript', 'CSS', 'Responsive Design', 'Accessibility'],
-    link: 'https://kylestarr.tech/',
+    link: 'https://github.com/kylestarrtech/Portfolio-V3',
     writeup: [
         'This is the third iteration of my personal portfolio website, built with React and Vite. The goal of this project was to create a modern, responsive, and accessible portfolio website that effectively showcases my skills and projects.',
         'The website features a clean and intuitive design, with a focus on being easy-to-navigate and visually appealing. The layout is responsive, ensuring that the website looks great on all devices.',
