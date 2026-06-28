@@ -43,20 +43,6 @@ const projects = [
         'Due to the open-source nature of the project, there have been several community contributions to the project, and I actively maintain and update the application to ensure it remains a valuable resource for the Dead by Daylight competitive community.',
         'Balanced by Daylight proves my ability to create full-stack web applications that are both functional and user-friendly, and demonstrates my ability to work with a group of contributors with my leadership and project management skills to create a successful open-source project.'
     ]
-  },
-  {
-    id: 2,
-    name: 'Portfolio V3',
-    image: portfolioV3Image,
-    description:
-        'A modern, responsive, and accessible portfolio website built with React and Vite with a focus on being easy-to-navigate, accessible for all, and visually appealing.',
-    tags: ['React', 'Vite', 'JavaScript', 'CSS', 'Responsive Design', 'Accessibility'],
-    link: 'https://github.com/kylestarrtech/Portfolio-V3',
-    writeup: [
-        'This is the third iteration of my personal portfolio website, built with React and Vite. The goal of this project was to create a modern, responsive, and accessible portfolio website that effectively showcases my skills and projects.',
-        'The website features a clean and intuitive design, with a focus on being easy-to-navigate and visually appealing. The layout is responsive, ensuring that the website looks great on all devices.',
-        'Accessibility was a key consideration in the design and development of this website. I have implemented best practices for web accessibility, including ARIA roles, keyboard navigation, and enhanced contrast for readability.'
-    ]
   }
 ];
 
